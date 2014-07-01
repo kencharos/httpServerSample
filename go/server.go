@@ -7,6 +7,7 @@ import (
 	"os"
 	"regexp"
 	"strconv"
+	"time"
 )
 
 func main() {
@@ -18,7 +19,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-
+		fmt.Println("/ GET[", time.Now(), "]")
 		w.Header().Set("Content-Type", "text/html")
 		file, _ := ioutil.ReadFile(path + "/welcom.html")
 
@@ -26,6 +27,8 @@ func main() {
 	})
 
 	http.HandleFunc("/calc", func(w http.ResponseWriter, r *http.Request) {
+
+		fmt.Println("/calc ", r.Method, "[", time.Now(), "]")
 
 		w.Header().Set("Content-Type", "text/html")
 		if r.Method == "GET" {

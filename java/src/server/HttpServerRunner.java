@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -34,6 +35,9 @@ public class HttpServerRunner {
 		server.createContext("/", new HttpHandler() {
 			public void handle(HttpExchange ex) throws IOException {
 
+				System.out.println("/ GET[" + Calendar.getInstance().getTime() + "]");
+				
+				
 				byte[] res = read(path, "welcom.html");
 				
 				ex.sendResponseHeaders(200, res.length);
@@ -45,6 +49,11 @@ public class HttpServerRunner {
 		
 		server.createContext("/calc", new HttpHandler() {
 			public void handle(HttpExchange ex) throws IOException {
+				
+
+				System.out.println("/calc " + ex.getRequestMethod() +
+						"[" + Calendar.getInstance().getTime() + "]");
+				
 				if (ex.getRequestMethod().equals("GET")) {
 					byte[] res = read(path, "calc.html");
 					
