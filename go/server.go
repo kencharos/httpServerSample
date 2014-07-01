@@ -49,9 +49,9 @@ func main() {
 
 		}
 	})
-	fmt.Println("Address = localhost:" + port)
+	fmt.Println("Address = :" + port)
 	fmt.Println("path = " + path)
-	err := http.ListenAndServe("localhost:"+port, nil)
+	err := http.ListenAndServe(":"+port, nil)
 	fmt.Println(err)
 }
 
