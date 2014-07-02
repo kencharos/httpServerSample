@@ -18,8 +18,8 @@ server.mount_proc("/") {|req, res|
   open(filename) do |file|
     res.body = file.read
   end
-  res.content_length = File.stat(filename).size
   res.content_type = "text/html"
+  #res.content_length = File.stat(filename).size
 }
 
 server.mount_proc("/calc") {|req, res|
@@ -31,7 +31,7 @@ server.mount_proc("/calc") {|req, res|
     open(filename) do |file|
       res.body = file.read
     end
-    res.content_length = File.stat(filename).size
+    #res.content_length = File.stat(filename).size
   else 
     input = req.query
     result = "wrong input"
@@ -44,7 +44,7 @@ server.mount_proc("/calc") {|req, res|
       content = file.read
     end
     res.body = sprintf(content, result)
-    res.content_length = res.body.size
+    #res.content_length = res.body.size
   end
 }
 
