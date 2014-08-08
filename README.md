@@ -1,13 +1,17 @@
-サンプルサーバー
------------
+HttpServerSample
+----------------
 
-## 目的
-  + GOとJavaの性能比較。
-  + ついでにLL言語(Ruby)とも性能比較
+## summary
+HTTP Server implementaion by go,java,ruby
 
-## 対象
-  + HTTPサーバー
-    + GETとPOSTリクエストを行う。
-    + POSTで値を送信し、入力値のチェックと計算結果野表示を行う。
-    + レスポンスはファイルから取得してクライアントに送る。
-    + なるべく、3言語で実装内容をそろえる。
+## purpose
++ language practice
++ benchmark golang perfomance
+
+## detail
++ I implement them as possible in the same way. 
++ I used only standard library.
++ I implemnt static http file transfer and calclate form date.
+
+## result
+go > java > ruby
